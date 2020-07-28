@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Contacs">
+      <ng-template mat-tab-label>
+        CONTACTS
+        <mat-icon class="icon"> contacts</mat-icon>
+      </ng-template>
+      <app-contact-list></app-contact-list>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        ADD CONTACT
+        <mat-icon class="icon"> add</mat-icon>
+      </ng-template>
+      <app-contact-form></app-contact-form>
+    </mat-tab>
+  </mat-tab-group>
+</div>

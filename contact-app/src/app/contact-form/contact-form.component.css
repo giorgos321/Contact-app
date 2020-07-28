@@ -1,0 +1,36 @@
+.icon {
+  margin-left: 10px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-width: 150px;
+
+  width: 90%;
+  height: 400px;
+  margin: 20px;
+}
+.form .name {
+}
+.form .phone-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.form .phone-input .dial {
+  width: 20%;
+}
+.form .phone-input .number {
+  width: 80%;
+}
+
+.full-width {
+  margin: auto;
+}
+.phone-input {
+  display: flex;
+  flex-direction: row;
+}
+.submit-button {
+}

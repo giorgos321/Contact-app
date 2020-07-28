@@ -1,0 +1,42 @@
+<form (submit)="handleSubmit()" [formGroup]="contactFormGroup" class="form">
+  <mat-form-field class="name" appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput type="text" name="name" formControlName="name" />
+    <mat-error *ngIf="hasError('name', 'maxlength')"
+      >Enter a valid name</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field class="name" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput type="text" name="email" formControlName="email" />
+    <mat-error *ngIf="hasError('email', 'required')"
+      >Email is required</mat-error
+    >
+  </mat-form-field>
+  <div class="phone-input">
+    <mat-form-field class="dial" appearance="fill">
+      <mat-label>Dial</mat-label>
+      <mat-select type="text" name="dial" formControlName="dial">
+        <mat-option *ngFor="let code of dialcodes" value="{{ code.dial_code }}"
+          >({{ code.dial_code }}) {{ code.name }}</mat-option
+        >
+
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="number" type="number" appearance="fill">
+      <mat-label>Number</mat-label>
+      <input matInput type="text" name="number" formControlName="number" />
+      <mat-hint>Only numeric inputs</mat-hint>
+      <mat-error *ngIf="hasError('number', 'required')"
+        >Number not valid
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <strong>Choose color of your contact :</strong>
+  <input type="color" name="color" formControlName="color" value="#f6b73c" />
+  <button class="submit-button" type="submit" mat-raised-button color="primary">
+    Add Contact
+  </button>
+</form>

@@ -1,0 +1,60 @@
+<cdk-virtual-scroll-viewport itemSize="50" class="list">
+  <button
+    type="button"
+    *ngIf="isCheckBoxChecked()"
+    mat-raised-button
+    color="warn"
+    class="bulk-delete-button"
+    (click)="openDeleteManyDialog()"
+  >
+    Delete Selected Contact(s)
+  </button>
+  <mat-list *cdkVirtualFor="let contact of contacts; let i = index">
+    <mat-list-item class="item">
+      <mat-icon
+        aria-hidden="false"
+        [ngStyle]="{ color: contact.color }"
+        aria-label="Example home icon"
+        class="icon"
+        >account_box</mat-icon
+      >
+      <table>
+        <td>
+          <tr>
+            <div class="name">{{ contact.name }}</div>
+          </tr>
+          <tr>
+            <div class="number">{{ contact.dial }} {{ contact.number }}</div>
+          </tr>
+        </td>
+      </table>
+      <button
+        (click)="openEditDialog(contact._id)"
+        class="list-button"
+        mat-raised-button
+        color="primary"
+      >
+        <mat-icon aria-hidden="false" aria-label="Example home icon"
+          >create</mat-icon
+        >
+      </button>
+      <button
+        (click)="openDialog(contact._id)"
+        class="list-button"
+        mat-raised-button
+        color="warn"
+      >
+        <mat-icon aria-hidden="false" aria-label="Example home icon"
+          >delete</mat-icon
+        >
+      </button>
+      <mat-checkbox
+        type="checkbox"
+        value="{{ contact._id }}"
+        [(ngModel)]="contact.checked"
+        class="checkbox"
+      ></mat-checkbox>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
+</cdk-virtual-scroll-viewport>
