@@ -15,13 +15,16 @@ connectDB();
 app.use('/api/contacts', require('./routes/contacts'));
 
 //Serve Static assets in production
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
+console.log(process.env);
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  });
-}
+console.log('im here');
+app.use(express.static('contact-app/dist/contact-app'));
+
+app.get('*', (req, res) => {
+  res.sendFile(
+    path.resolve(__dirname, 'contact-app', 'dist', 'contact-app', 'index.html')
+  );
+});
 
 const PORT = process.env.PORT || 7000;
 
