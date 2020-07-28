@@ -15,9 +15,7 @@ connectDB();
 app.use('/api/contacts', require('./routes/contacts'));
 
 //Serve Static assets in production
-console.log(process.env);
 
-console.log('im here');
 app.use(express.static('contact-app/dist/contact-app'));
 
 app.get('*', (req, res) => {

@@ -108,20 +108,6 @@ export class ContactListComponent implements OnInit {
     console.log(this.contacts);
   }
 
-  checkAllCheckBox(ev) {
-    this.contacts.forEach((x) => (x.checked = ev.target.checked));
-  }
-
-  isAllCheckBoxChecked() {
-    return this.contacts.every((p) => p.checked);
-  }
-
-  isCheckBoxChecked() {
-    if (this.contacts.filter((p) => p.checked).length > 0) {
-      return this.contacts.filter((p) => p.checked);
-    }
-  }
-
   deleteContacts(): void {
     const selectedContacts = this.contacts
       .filter((contact) => contact.checked)

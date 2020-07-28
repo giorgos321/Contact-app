@@ -24,8 +24,6 @@ export class ContactService {
   private _refreshNeeded$ = new Subject<void>();
   refreshNeeded$ = this._refreshNeeded$.asObservable();
 
-  private tabSelector = new BehaviorSubject<number>(null);
-
   get refreshneeded$() {
     return this._refreshNeeded$;
   }
@@ -66,7 +64,6 @@ export class ContactService {
     return this.httpClient.get<Contact[]>('http://localhost:7000/api/contacts');
   }
 
-  /** DELETE: delete the product from the server */
   deleteContacts(ids: string[]): Observable<object> {
     const data = { ids: ids };
 
