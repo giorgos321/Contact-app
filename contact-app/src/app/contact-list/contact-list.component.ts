@@ -48,6 +48,12 @@ export class ContactListComponent implements OnInit {
     }
   }
 
+  isCheckBoxChecked() {
+    if (this.contacts.filter((p) => p.checked).length > 0) {
+      return this.contacts.filter((p) => p.checked);
+    }
+  }
+
   deleteContact(contact_id) {
     this.contactService.deleteContact(contact_id).subscribe();
   }
