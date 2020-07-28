@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon index",
     "start": "node index",
-    "heroku-postinstall": "npm run start && NPM_CONFIG_PRODUCTION=false npm install --prefix contact-app && npm run build --prefix contact-app"
+    "postinstall": "npm run start && NPM_CONFIG_PRODUCTION=false npm install --prefix contact-app && npm run build --prefix contact-app"
   },
   "author": "Giorgos Lame",
   "license": "MIT",
